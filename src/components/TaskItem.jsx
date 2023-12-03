@@ -1,8 +1,15 @@
 import React from 'react';
 
 const TaskItem = (props) => {
+
+   function selectTask(){
+    localStorage.nowtask=(props.task).id
+    props.setPop(true)
+
+  }
+
     return ( 
-        <ol className='tasks__item'>
+        <ol onClick={()=>selectTask()} className='tasks__item'>
           <button onClick={()=>props.remove(props.task)} className="tasks__close">X</button>
         <input  className='tasks__input' type='checkbox'/> 
       <div className='tasks__content'>

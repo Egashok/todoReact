@@ -3,18 +3,12 @@ import TaskItem from "./TaskItem";
 import Creator from "./Creator";
 import { TransitionGroup,CSSTransition } from 'react-transition-group';
 
-const TasksList = ({filter,setFilter}) => {
+const TasksList = ({filter,setFilter,setPop,tasks,setTasks}) => {
 
     const [creatorVisible,setCreatorVisivle]=useState(false)
 
 
-    const [tasks,setTasks]=useState([
-    {id:1,title:"Аоспать",body:"Жеска поспать",time:"10:00"},
-    {id:2,title:"Поспать",body:"Жеска поспать",time:"20:00"},
-    {id:3,title:"БЕспать",body:"Жеска неспать",time:"10:01"}
-])
 
-const [sortedTasks,setSortedTasks]=useState(tasks,filter.sort,filter.query)
 
     const createTask=(newTask)=>{
         
@@ -40,19 +34,15 @@ const [sortedTasks,setSortedTasks]=useState(tasks,filter.sort,filter.query)
 
     return (
         <div className='tasks_container'>
-            <h4 className='tasks__title'>Личные</h4>
            <ul className='tasks__list'>
           
-            
            {sortTasks.map((task)=>
     
-        <TaskItem remove={removeTask} task={task}></TaskItem>
+        <TaskItem setPop={setPop} remove={removeTask} task={task}></TaskItem>
     
         )}
            
            {creatorVisible && <Creator create={createTask} visChange={visChange}/>}
-         
-
            </ul>
             {!creatorVisible && <button onClick={()=>{setCreatorVisivle(true)}} className='tasks__btn'>+Добавить</button>  }
            </div>
