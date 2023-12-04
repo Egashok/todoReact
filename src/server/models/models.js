@@ -15,8 +15,8 @@ const User = sequelize.define('user', {
     password: {type: DataTypes.STRING},
 })
 
-User.hasMany(Task)
-Task.belongsTo(User)
+// User.hasMany(Task)
+// Task.belongsTo(User)
 
 
 

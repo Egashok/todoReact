@@ -11,9 +11,9 @@ class TaskController {
 
     async getAll(req, res) {
         let {date} = req.params
-        const task = await Task.findOne(
+        let  task = await Task.findAll(
             {
-                where: {date}
+                where: {date}   
             },
         )
         return res.json(task)
