@@ -1,7 +1,12 @@
-const ButtonCalendar = (num) => {
+const ButtonCalendar = ({setNow,val,month,year}) => {
+
+    function redirect(){
+        setNow(String(val)+'.'+String(month+1)+'.'+String(year))
+        
+    }
 
     return ( 
-        <button className="button__calendar" value={num.val}  >{num.val}</button>
+        <button onClick={()=>redirect()} className="button__calendar" value={val}  >{val}</button>
         
         
         

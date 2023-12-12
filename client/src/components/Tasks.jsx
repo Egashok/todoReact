@@ -5,16 +5,19 @@ import Cardpopup from "./UI/Cardpopup";
 import {useParams} from 'react-router-dom'
 import { fetchTask } from "../http/taskApi";
 
-const Tasks = ({date,filter,setFilter,Select,fastAdd}) => {
+const Tasks = ({now,date,filter,setFilter,Select,fastAdd}) => {
 
   const [tasks,setTasks]=useState(fetchTask(1))
 
   const[sort,setSort]=useState([])
-  const [_,update]=useReducer(x=>x+1.0)
+  
   useEffect(()=>{
-    setTasks(fetchTask(1))
+    setTasks(fetchTask(now))
     
-  },[fastAdd])
+  },[fastAdd,now])
+
+
+
   useEffect(()=>{
   
     tasks.then(a => {
@@ -46,7 +49,7 @@ const Tasks = ({date,filter,setFilter,Select,fastAdd}) => {
           /></button>
           </div>
 
-        <TasksList tasks={sort} setTasks={setSort} setPop={setPop} filter={filter} setFilter={setFilter}/>
+        <TasksList now={now}  tasks={sort} setTasks={setSort} setPop={setPop} filter={filter} setFilter={setFilter}/>
      </div>
       );
 }

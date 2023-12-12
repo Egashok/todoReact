@@ -1,20 +1,22 @@
 import { useState,useEffect,useReducer } from 'react';
 import ButtonCalendar from './ButtonCalendar';
 
-const CalendarTable = ({month,year,firstDay,monthStep}) => {
+const CalendarTable = ({month,year,firstDay,monthStep,setNow}) => {
 
     let daysName = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
     let nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let dayInMonth = nDays[month]
-
+    const [ar,setAr]=useState()
 
 
     useEffect(()=>{
         setAr(calculateCalendar())
+
     
     },[monthStep])
     
     function calculateCalendar(step = 0) {
+
 
       
         month = month + step
@@ -64,13 +66,13 @@ const CalendarTable = ({month,year,firstDay,monthStep}) => {
         const array = []
         matrix.forEach((i) => {
             i.map((e) => {
-                array.push(<ButtonCalendar val={e} />)
+                array.push(<ButtonCalendar setNow={setNow}  month={month} year={year} val={e} />)
 
             })
         })
         return array
     }
-    const [ar,setAr]=useState(calculateCalendar(monthStep))
+   
     return (  
         
         <div className="calendar__table">

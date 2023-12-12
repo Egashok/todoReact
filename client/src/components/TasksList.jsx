@@ -7,7 +7,7 @@ import {useParams} from 'react-router-dom'
 import { createTask,remove } from "../http/taskApi";
 
 
-const TasksList = ({filter,setFilter,setPop,tasks,setTasks}) => {
+const TasksList = ({now,filter,setFilter,setPop,tasks,setTasks}) => {
 
     const [creatorVisible,setCreatorVisivle]=useState(false) 
 
@@ -54,7 +54,7 @@ const TasksList = ({filter,setFilter,setPop,tasks,setTasks}) => {
     
         )}
            
-           {creatorVisible && <Creator add={add} setAdd={setAdd} create={create} visChange={visChange}/>}
+           {creatorVisible && <Creator now={now} add={add} setAdd={setAdd} create={create} visChange={visChange}/>}
            </ul>
             {!creatorVisible && <button onClick={()=>{setCreatorVisivle(true)}} className='tasks__btn'>+Добавить</button>  }
            </div>

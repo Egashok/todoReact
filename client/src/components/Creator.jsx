@@ -1,9 +1,9 @@
 import { useState,useReducer } from "react";
 
-const Creator = ({visChange,create,add,setAdd}) => {
+const Creator = ({now,visChange,create,add,setAdd}) => {
 
 
-  const [task,setTask]=useState({date:1,title:'',body:'',time:''});
+  const [task,setTask]=useState({date:now,title:'',body:'',time:''});
 
   const addNewTask = function(e){
     e.preventDefault()
@@ -13,7 +13,7 @@ const Creator = ({visChange,create,add,setAdd}) => {
   
     create(newTask)
   
-    setTask({date:1,title:'',body:'',time:''})
+    setTask({date:'',title:'',body:'',time:''})
 
    }
 
