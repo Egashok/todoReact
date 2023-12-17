@@ -1,7 +1,63 @@
 html{
 padding: 0;
 margin: 0;
+font-family: "Lucida Console", "Courier New", monospace;
+background-color: #f0f1f2;
 }
+
+button, input[type="button"], input[type="submit"] {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+select {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+input {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.creator__name {
+    margin: 10px;
+    margin-left: 0px;
+    width: 450px;
+}
+
+.creator__time {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40px;
+}
+
+.creator__body {
+    margin-bottom: 10px;
+    /* height: 100px; */
+}
+
+.creator__cancel {
+    margin-right: 10px;
+}
+
+.main__title {
+    font-size: 25px;
+}
+
+.creator__top {
+    display: flex;
+    flex-direction: row;
+}
+
+.creator__bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks_container {
+    width: 400px;
+    border: 2px solid black;
+}
+
+
 body{
 padding: 0;
 margin: 0;
@@ -31,7 +87,7 @@ align-items: center;
     position: relative;
      display: block;
      width: 100%;
-     height: 2px;
+     height: 3px;
      marging: 10px 0;
      left: 0px;
      top: 0;
@@ -47,7 +103,7 @@ align-items: center;
     content: " ";
     position: absolute;
     top: -8px;
-    height: 2px;
+    height: 3px;
     left: 0px;
     background-color:#eee5e5;
 
@@ -63,7 +119,7 @@ align-items: center;
 
     background-color:#eee5e5;
 
-   height: 2px;
+   height: 3px;
 }
 
 .header{
@@ -83,7 +139,7 @@ padding-right: 250px;
 .main__btn{
 cursor: pointer;
     border: none;
-    width: 100px;
+    width: 140px;
     height: 30px;
 
 }
@@ -195,6 +251,7 @@ flex: 1 1 13%;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 .Sidebar__btn-active{
     font-weight: 800;
