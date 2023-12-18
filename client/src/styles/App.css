@@ -15,18 +15,32 @@ select {
 
 input {
     font-family: "Lucida Console", "Courier New", monospace;
+    background-color: #f0f1f2;
+    border: none;
 }
 
+input:focus {
+    outline: none;
+}
+
+.creator__name:active, 
+.creator__time:active, 
+.creator__body:active {
+    background-color: #f0f1f2;
+    border: none;
+  }
+
 .creator__name {
-    margin: 10px;
-    margin-left: 0px;
+    margin-right: 10px;
     width: 450px;
+    font-size: 16px;
+    border-bottom: 1.5px solid #727272;
 }
 
 .creator__time {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 40px;
+    width: 50px;
+    font-size: 16px;
+    border-bottom: 1.5px solid #727272;
 }
 
 .creator__body {
@@ -45,6 +59,7 @@ input {
 .creator__top {
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 }
 
 .creator__bottom {
@@ -52,9 +67,11 @@ input {
     flex-direction: column;
 }
 
-.tasks_container {
+.creator {
     width: 400px;
-    border: 2px solid black;
+    border: 2px solid #727272;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 
@@ -88,7 +105,7 @@ align-items: center;
      display: block;
      width: 100%;
      height: 3px;
-     marging: 10px 0;
+     margin: 10px 0;
      left: 0px;
      top: 0;
      cursor: pointer;
@@ -153,9 +170,10 @@ justify-content: space-between;
 display: flex;
 margin: 0;
 padding: 0;
-border:1px solid red;
+border: 1.5px solid #727272;
+border-radius: 8px;
 margin: 10px auto;
-padding: 10px 20px;
+padding: 10px 10px;
 
 }
 .tasks__list{
@@ -168,13 +186,24 @@ flex-direction: column;
 flex: 1 1 100%;
 }
 .tasks__item-time{
-margin: 0;
+    margin: 0;
+    margin-left: auto;
 
 }
-.tasks__item-title{
-margin: 0;
 
+.tasks__item-title {
+    margin: 0;
+    font-size: 16px;
 }
+
+.tasks__item-body {
+    margin: 0;
+    margin-top: 10px;
+    padding-left: 26px;
+    font-size: 14px;
+    color: #727272;
+}
+
 .tasks__wrapper{
 display: flex;
 flex-direction: column;
@@ -182,7 +211,6 @@ flex: 1 1 66%;
 }
 .task__item-top{
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     
@@ -215,6 +243,7 @@ flex: 1 1 66%;
     cursor: pointer;
 padding: 0;
 margin: 0;
+margin-left: 20px;
 border: none;
 }
 input:active {
