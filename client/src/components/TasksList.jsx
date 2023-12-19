@@ -1,11 +1,8 @@
-import { useState ,useMemo,useReducer} from "react";
+import { useState ,useMemo} from "react";
 import TaskItem from "./TaskItem";
 import Creator from "./Creator";
-import { TransitionGroup,CSSTransition } from 'react-transition-group';
 import { useEffect } from "react";
-import {useParams} from 'react-router-dom'
 import { createTask,remove } from "../http/taskApi";
-
 
 const TasksList = ({now,filter,setFilter,setPop,tasks,setTasks}) => {
 
@@ -13,7 +10,6 @@ const TasksList = ({now,filter,setFilter,setPop,tasks,setTasks}) => {
 
     const [add,setAdd]=useState(false) 
  
-  const[_,update]=useReducer(z => z + 1, 0)
 
     const create =(newTask)=>{
       setTasks([...tasks,newTask])

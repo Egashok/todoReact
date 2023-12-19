@@ -13,7 +13,6 @@ const TaskItem = (props) => {
       <div className='tasks__content'>
 
         <div className="task__item-top">
-          <input className='tasks__input' type='checkbox' />
           <p className='tasks__item-title'>{props.task.title}</p>
           <p className='tasks__item-time'>{props.task.time}</p>
           <button onClick={() => props.remove(props.task)} className="tasks__close">X</button>

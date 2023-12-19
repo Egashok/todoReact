@@ -1,9 +1,7 @@
 import { useState,useReducer } from "react";
 import { createTask } from "../../http/taskApi";
 
-
 const Creator = ({visChange,fastAdd,setFastAdd}) => {
-
 
   const [task,setTask]=useState({date:'',title:'',body:'',time:'',active:false});
 
@@ -19,8 +17,6 @@ const Creator = ({visChange,fastAdd,setFastAdd}) => {
   setTask({date:'',title:'',body:'',time:'',active:false})
 
    }
-
-
 
     return ( 
         <div  className='creator'>

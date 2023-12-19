@@ -17,8 +17,6 @@ const Creator = ({now,visChange,create,add,setAdd}) => {
 
    }
 
-
-
     return ( 
         <div  className='creator'>
         <div className='creator__top'>
