@@ -51,7 +51,7 @@ const Tasks = ({now,date,filter,setFilter,Select,fastAdd}) => {
             options={[
             {value: '', name:'По добавлению'},
             {value: 'title', name:'По названию'},
-            {value: 'time', name:'По дедлайну'},
+            {value: 'time', name:'По времени'},
           
           ]}
           /></button>
