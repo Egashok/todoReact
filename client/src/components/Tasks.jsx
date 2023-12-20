@@ -1,65 +1,65 @@
-import { useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import TasksList from "./TasksList";
 import { fetchTask } from "../http/taskApi";
 
-const Tasks = ({now,date,filter,setFilter,Select,fastAdd}) => {
+const Tasks = ({ now, date, filter, setFilter, Select, fastAdd }) => {
 
-  const [tasks,setTasks]=useState(fetchTask(1))
+  const [tasks, setTasks] = useState(fetchTask(1))
 
 
-  const[sort,setSort]=useState([])
-  const [datVis,usedatVis]=useState(date);
+  const [sort, setSort] = useState([])
+  const [datVis, usedatVis] = useState(date);
 
-  var d=new Date();
+  var d = new Date();
   var year = d.getFullYear();
   var month = d.getMonth();
   var firstDay = new Date().getDate();
-  const [dv,setDv]=useState(String(firstDay)+'.'+String(month+1)+'.'+String(year))
+  const [dv, setDv] = useState(String(firstDay) + '.' + String(month + 1) + '.' + String(year))
 
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     setTasks(fetchTask(now))
-    
-  },[fastAdd,now])
 
-  useEffect(()=>{
-    if(date==dv){
+  }, [fastAdd, now])
+
+  useEffect(() => {
+    if (date == dv) {
       usedatVis("Сегодня")
     }
-    else{
+    else {
       usedatVis(now)
     }
-  },[date])
+  }, [date])
 
 
-  useEffect(()=>{
-  
+  useEffect(() => {
+
     tasks.then(a => {
       setSort(a)
     });
-  },[tasks,fastAdd])
+  }, [tasks, fastAdd])
 
-    const [pop,setPop]=useState(false)
-    return ( 
-      <div className='tasks__wrapper'>
-        <div className='tasks__top'>
-          <h1 className='main__title'>{datVis}</h1> <button   className='main__btn'>
-           <Select
+  const [pop, setPop] = useState(false)
+  return (
+    <div className='tasks__wrapper'>
+      <div className='tasks__top'>
+        <h1 className='main__title'>{datVis}</h1> <button className='main__btn'>
+          <Select
             value={filter.sort}
-            onChange={selectedSort=>setFilter({...filter,sort:selectedSort})}
+            onChange={selectedSort => setFilter({ ...filter, sort: selectedSort })}
             defaultValue="Сортировка"
             options={[
-            {value: '', name:'По добавлению'},
-            {value: 'title', name:'По названию'},
-            {value: 'time', name:'По времени'},
-          
-          ]}
-          /></button>
-          </div>
+              { value: '', name: 'По добавлению' },
+              { value: 'title', name: 'По названию' },
+              { value: 'time', name: 'По времени' },
 
-        <TasksList now={now}  tasks={sort} setTasks={setSort} setPop={setPop} filter={filter} setFilter={setFilter}/>
-     </div>
-      );
+            ]}
+          /></button>
+      </div>
+
+      <TasksList now={now} tasks={sort} setTasks={setSort} setPop={setPop} filter={filter} setFilter={setFilter} />
+    </div>
+  );
 }
- 
+
 export default Tasks;

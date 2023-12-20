@@ -1,4 +1,4 @@
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles/App.css';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
@@ -10,40 +10,40 @@ import Tasks from './components/Tasks';
 
 function App() {
 
-  const [showSide,setShowSide]=useState(true)
-  const [filter,setFilter]=useState({sort:'',query:''})
-  const [visible,setVisible]=useState(true)
-  const [fastAdd,setFastAdd]=useState(false)
-  
+  const [showSide, setShowSide] = useState(true)
+  const [filter, setFilter] = useState({ sort: '', query: '' })
+  const [visible, setVisible] = useState(true)
+  const [fastAdd, setFastAdd] = useState(false)
+
   let state = {
     activeDate: new Date()
-}
-    var year = state.activeDate.getFullYear();
-    var month = state.activeDate.getMonth();
-    var firstDay = new Date().getDate();
+  }
+  var year = state.activeDate.getFullYear();
+  var month = state.activeDate.getMonth();
+  var firstDay = new Date().getDate();
 
-  const [now,setNow]=useState(String(firstDay)+'.'+String(month+1)+'.'+String(year))
-  const visSide=()=>{
+  const [now, setNow] = useState(String(firstDay) + '.' + String(month + 1) + '.' + String(year))
+  const visSide = () => {
     setShowSide(!showSide)
   }
 
-  useEffect(()=>{ 
+  useEffect(() => {
     setVisible(false)
     console.log(now)
-  },[now])
-  
+  }, [now])
+
   return (
     <div className="App">
 
-<Modal visible={visible} setVisible={setVisible} children={<Calendar setNow={setNow} visible={visible} />}></Modal>
+      <Modal visible={visible} setVisible={setVisible} children={<Calendar setNow={setNow} visible={visible} />}></Modal>
 
-   <Header visSide={visSide}/>
-  
+      <Header visSide={visSide} />
+
       <div className='main'>
-      {showSide && <Sidebar setVisible={setVisible} setFastAdd={setFastAdd} />} 
-    <Modal visible={fastAdd} setVisible={setFastAdd} children={<FastAdd fastAdd={fastAdd} setFastAdd={setFastAdd} />}></Modal>
+        {showSide && <Sidebar setVisible={setVisible} setFastAdd={setFastAdd} />}
+        <Modal visible={fastAdd} setVisible={setFastAdd} children={<FastAdd fastAdd={fastAdd} setFastAdd={setFastAdd} />}></Modal>
 
-      <Tasks now={now} fastAdd={fastAdd} date={now} filter={filter} Select={Select} setFilter={setFilter} />
+        <Tasks now={now} fastAdd={fastAdd} date={now} filter={filter} Select={Select} setFilter={setFilter} />
       </div>
 
     </div>

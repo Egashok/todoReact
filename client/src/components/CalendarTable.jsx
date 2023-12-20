@@ -1,37 +1,37 @@
-import { useState,useEffect,useReducer } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import ButtonCalendar from './ButtonCalendar';
 
-const CalendarTable = ({month,year,firstDay,monthStep,setNow}) => {
+const CalendarTable = ({ month, year, firstDay, monthStep, setNow }) => {
 
     let daysName = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС']
     let nDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let dayInMonth = nDays[month]
-    const [ar,setAr]=useState()
+    const [ar, setAr] = useState()
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setAr(calculateCalendar())
 
-    
-    },[monthStep])
-    
+
+    }, [monthStep])
+
     function calculateCalendar(step = 0) {
 
 
-      
+
         month = month + step
 
         if (month == 12) {
             month = 0
-            year=year+ 1
+            year = year + 1
 
         }
         if (month == -1) {
-            year =year- 1
+            year = year - 1
             month = 11
 
         }
-       
+
         firstDay = new Date(year, month, 1).getDay();
 
 
@@ -66,23 +66,23 @@ const CalendarTable = ({month,year,firstDay,monthStep,setNow}) => {
         const array = []
         matrix.forEach((i) => {
             i.map((e) => {
-                array.push(<ButtonCalendar setNow={setNow}  month={month} year={year} val={e} />)
+                array.push(<ButtonCalendar setNow={setNow} month={month} year={year} val={e} />)
 
             })
         })
         return array
     }
-   
-    return (  
-        
+
+    return (
+
         <div className="calendar__table">
-           <div>
-    
-           </div>
+            <div>
+
+            </div>
             {ar}
 
         </div>
-        );
+    );
 }
- 
+
 export default CalendarTable;

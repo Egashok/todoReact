@@ -4,10 +4,10 @@ import { useEffect, useReducer, useState } from 'react';
 import CalendarTable from './CalendarTable';
 
 
-const Calendar = ({setNow}) => {
+const Calendar = ({ setNow }) => {
 
 
-    
+
     const [monthStep, setMonthStep] = useState(0)
     let state = {
         activeDate: new Date()
@@ -16,28 +16,28 @@ const Calendar = ({setNow}) => {
     var month = state.activeDate.getMonth();
     var firstDay = new Date(year, month, 1).getDay();
 
-    const [m,setM]=useState(month)
-    const [y,setY]=useState(year)
+    const [m, setM] = useState(month)
+    const [y, setY] = useState(year)
 
 
     function changeCalendar(step) {
         setMonthStep(monthStep + step)
-        setM(step+m)
+        setM(step + m)
 
-        if (step+m == 12 && step ==1) {
+        if (step + m == 12 && step == 1) {
             setM(0)
-            setY(y+1) 
+            setY(y + 1)
         }
-     
-        else if (step+m == -1  && step==-1) {
 
-            setY(y-1)
+        else if (step + m == -1 && step == -1) {
+
+            setY(y - 1)
             setM(11)
 
         }
-console.log('zx')
+        console.log('zx')
     }
-   
+
 
 
     return (
@@ -45,11 +45,11 @@ console.log('zx')
         <div className="Calendar">
 
             <div>
-            {m+1}/{y}
+                {m + 1}/{y}
             </div>
 
             <div className="array">
-               <CalendarTable setNow={setNow}  month={m} year={y} monthStep={monthStep} firstDay={firstDay}/>
+                <CalendarTable setNow={setNow} month={m} year={y} monthStep={monthStep} firstDay={firstDay} />
             </div>
 
             <button onClick={() => changeCalendar(-1)} id="btnPrev" type="button">Предыдущий</button>

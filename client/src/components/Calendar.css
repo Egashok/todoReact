@@ -1,16 +1,18 @@
-.button__calendar{
-    width:35px;
-    height:35px;
+.button__calendar {
+    width: 35px;
+    height: 35px;
     text-align: center;
-    
-    }
-    .Calendar{
-    
+
+}
+
+.Calendar {
+
     text-align: center;
     margin: 0 auto;
-    }
-    .array{
-        margin: 10px auto;
-        
-        width: 250px;
-    }
+}
+
+.array {
+    margin: 10px auto;
+
+    width: 250px;
+}

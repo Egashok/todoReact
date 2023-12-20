@@ -9,7 +9,7 @@ const TaskItem = (props) => {
 
   return (
     <ol onClick={() => selectTask()} className='tasks__item'>
-      
+
       <div className='tasks__content'>
 
         <div className="task__item-top">
