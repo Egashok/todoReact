@@ -35,25 +35,25 @@ To reproduce this project follow the steps below:
 - Start server:
 
   ``` sh
-   npm run dev
+  npm run dev
   ```
   
 - Back to main directory and go to client directory:
 
   ```sh
-    cd .. && cd client
+  cd .. && cd client
   ```
 
 - Now just start client:
 
   ```sh
-    npm start
+  npm start
   ```
 
 - To see your application running, access:
 
   ```sh
-    http://127.0.0.1:8000/
+  http://127.0.0.1:8000/
   ```
 ## Main menu
 ![image](https://github.com/Egashok/todoReact/assets/55044715/44d89720-be35-409b-876f-4bc67eb0068a)
